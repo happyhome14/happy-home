@@ -832,49 +832,25 @@ async function submitBooking() {
     // LƯU VÀO SUPABASE
     // ======================================
 
-    const { data, error } =
-        await supabaseClient
-            .from("bookings")
-            .insert([
-                {
-                    booking_code:
-                        bookingCode,
-
-                    customer_name:
-                        customerName,
-
-                    customer_phone:
-                        customerPhone,
-
-                    customer_email:
-                        customerEmail,
-
-                    room_type:
-                        roomType,
-
-                    room_number:
-                        roomNumber,
-
-                    guest_number:
-                        guestNumber,
-
-                    check_in:
-                        checkIn.toISOString(),
-
-                    check_out:
-                        checkOut.toISOString(),
-
-                    note:
-                        note,
-
-                    total_price:
-                        totalPrice,
-
-                    status:
-                        "Chờ xác nhận"
-                }
-            ])
-            .select();
+   const { error } =
+    await supabaseClient
+        .from("bookings")
+        .insert([
+            {
+                booking_code: bookingCode,
+                customer_name: customerName,
+                customer_phone: customerPhone,
+                customer_email: customerEmail,
+                room_type: roomType,
+                room_number: roomNumber,
+                guest_number: guestNumber,
+                check_in: checkIn.toISOString(),
+                check_out: checkOut.toISOString(),
+                note: note,
+                total_price: totalPrice,
+                status: "Chờ xác nhận"
+            }
+        ]);
 
 
     // ======================================
