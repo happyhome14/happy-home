@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Home - Homestay Hạ Long</title>
+
+    <!-- Kết nối file CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ==================== THANH MENU ==================== -->
+
+    <header class="header">
+
+        <div class="logo">
+            <span>HAPPY</span> HOME
+        </div>
+
+        <nav class="navbar">
+
+            <a href="#home">Trang chủ</a>
+
+            <a href="#rooms">Phòng</a>
+
+            <a href="#services">Dịch vụ</a>
+
+            <a href="booking.html">Đặt phòng</a>
+
+            <a href="lookup.html">Tra cứu đặt phòng</a>
+
+            <a href="#contact">Liên hệ</a>
+
+<a href="admin/login.html" class="admin-login-btn">
+    ĐĂNG NHẬP ADMIN
+</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==================== BANNER ==================== -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                CHÀO MỪNG ĐẾN VỚI
+            </p>
+
+            <h1>
+                HAPPY HOME
+            </h1>
+
+            <h2>
+                Homestay tại Hạ Long - Quảng Ninh
+            </h2>
+
+            <p>
+                Không gian nghỉ dưỡng thoải mái,
+                view đẹp và thuận tiện cho chuyến du lịch Hạ Long.
+            </p>
+
+            <a href="booking.html" class="hero-button">
+                ĐẶT PHÒNG NGAY
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== GIỚI THIỆU ==================== -->
+
+    <section class="introduction">
+
+        <div class="section-title">
+
+            <p>HAPPY HOME</p>
+
+            <h2>
+                Không gian nghỉ dưỡng dành cho bạn
+            </h2>
+
+        </div>
+
+        <div class="intro-content">
+
+            <div class="intro-text">
+
+                <h3>
+                    Homestay Happy Home - Hạ Long
+                </h3>
+
+                <p>
+                    Happy Home là homestay phục vụ khách du lịch
+                    khi đến Hạ Long, Quảng Ninh.
+                </p>
+
+                <p>
+                    Homestay cung cấp nhiều lựa chọn phòng phù hợp
+                    với khách đi du lịch cá nhân, các cặp đôi,
+                    nhóm bạn và gia đình.
+                </p>
+
+                <p>
+                    Khách hàng có thể xem thông tin phòng,
+                    lựa chọn ngày nhận phòng, ngày trả phòng,
+                    số lượng khách và thực hiện đặt phòng trực tuyến.
+                </p>
+
+            </div>
+
+            <div class="intro-box">
+
+                <div>
+                    <strong>📍</strong>
+                    <span>Hạ Long - Quảng Ninh</span>
+                </div>
+
+                <div>
+                    <strong>🏠</strong>
+                    <span>Không gian nghỉ dưỡng</span>
+                </div>
+
+                <div>
+                    <strong>📅</strong>
+                    <span>Đặt phòng trực tuyến</span>
+                </div>
+
+                <div>
+                    <strong>💬</strong>
+                    <span>Hỗ trợ khách hàng</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== DANH SÁCH PHÒNG ==================== -->
+
+    <section id="rooms" class="rooms">
+
+        <div class="section-title">
+
+            <p>HAPPY HOME</p>
+
+            <h2>
+                Các loại phòng
+            </h2>
+
+            <span>
+                Lựa chọn không gian phù hợp với nhu cầu của bạn
+            </span>
+
+        </div>
+
+
+        <div class="room-container">
+
+
+            <!-- PHÒNG NHỎ -->
+
+            <div class="room-card">
+
+                <div class="room-image">
+                    🛏️
+                </div>
+
+                <div class="room-content">
+
+                    <h3>
+                        Phòng nhỏ
+                    </h3>
+
+                    <p>
+                        Phòng phù hợp cho khách đi một mình
+                        hoặc các cặp đôi.
+                    </p>
+
+                    <div class="room-info">
+                        <span>👥 1 - 2 người</span>
+                        <span>🛏️ Double 2m x 2m</span>
+                    </div>
+
+                    <div class="price">
+
+                        <p>
+                            Ngày thường:
+                            <strong>450.000đ/đêm</strong>
+                        </p>
+
+                        <p>
+                            Cuối tuần:
+                            <strong>700.000đ/đêm</strong>
+                        </p>
+
+                    </div>
+
+                    <button
+                        onclick="selectRoom('Phòng nhỏ')">
+                        Đặt phòng
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHÒNG LỚN -->
+
+            <div class="room-card">
+
+                <div class="room-image">
+                    🌊
+                </div>
+
+                <div class="room-content">
+
+                    <h3>
+                        Phòng lớn
+                    </h3>
+
+                    <p>
+                        Phòng rộng rãi, có view biển,
+                        phù hợp cho các cặp đôi hoặc nhóm nhỏ.
+                    </p>
+
+                    <div class="room-info">
+                        <span>👥 1 - 2 người</span>
+                        <span>🛏️ Double 2m x 2m</span>
+                    </div>
+
+                    <div class="price">
+
+                        <p>
+                            Ngày thường:
+                            <strong>800.000đ/đêm</strong>
+                        </p>
+
+                        <p>
+                            Cuối tuần:
+                            <strong>1.000.000đ/đêm</strong>
+                        </p>
+
+                    </div>
+
+                    <button
+                        onclick="selectRoom('Phòng lớn')">
+                        Đặt phòng
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHÒNG NHÓM -->
+
+            <div class="room-card">
+
+                <div class="room-image">
+                    👨‍👩‍👧‍👦
+                </div>
+
+                <div class="room-content">
+
+                    <h3>
+                        Phòng nhóm
+                    </h3>
+
+                    <p>
+                        Phòng dành cho nhóm bạn hoặc gia đình
+                        có nhu cầu nghỉ cùng nhau.
+                    </p>
+
+                    <div class="room-info">
+                        <span>👥 4 - 6 người</span>
+                        <span>🛏️ Giường tầng 1m x 1m</span>
+                    </div>
+
+                    <div class="price">
+
+                        <p>
+                            Ngày thường:
+                            <strong>800.000đ/đêm</strong>
+                        </p>
+
+                        <p>
+                            Cuối tuần:
+                            <strong>850.000đ/đêm</strong>
+                        </p>
+
+                    </div>
+
+                    <button
+                        onclick="selectRoom('Phòng nhóm')">
+                        Đặt phòng
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHÒNG 4PN -->
+
+            <div class="room-card">
+
+                <div class="room-image">
+                    🏡
+                </div>
+
+                <div class="room-content">
+
+                    <h3>
+                        Nhà 4 phòng ngủ
+                    </h3>
+
+                    <p>
+                        Không gian lớn gồm 4 phòng ngủ,
+                        phù hợp cho gia đình hoặc nhóm đông người.
+                    </p>
+
+                    <div class="room-info">
+                        <span>👥 Nhóm đông</span>
+                        <span>🛏️ 4 phòng ngủ</span>
+                    </div>
+
+                    <div class="price">
+
+                        <p>
+                            Ngày thường:
+                            <strong>2.500.000đ/đêm</strong>
+                        </p>
+
+                        <p>
+                            Cuối tuần:
+                            <strong>4.000.000đ/đêm</strong>
+                        </p>
+
+                    </div>
+
+                    <button
+                        onclick="selectRoom('Nhà 4 phòng ngủ')">
+                        Đặt phòng
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- NGUYÊN CĂN -->
+
+            <div class="room-card">
+
+                <div class="room-image">
+                    🏠
+                </div>
+
+                <div class="room-content">
+
+                    <h3>
+                        Nguyên căn
+                    </h3>
+
+                    <p>
+                        Không gian riêng tư dành cho nhóm khách
+                        muốn thuê toàn bộ homestay.
+                    </p>
+
+                    <div class="room-info">
+                        <span>👥 Nhóm đông</span>
+                        <span>🍳 Miễn phí sử dụng bếp</span>
+                    </div>
+
+                    <div class="price">
+
+                        <p>
+                            Ngày thường:
+                            <strong>3.000.000đ/đêm</strong>
+                        </p>
+
+                        <p>
+                            Cuối tuần:
+                            <strong>4.500.000đ/đêm</strong>
+                        </p>
+
+                    </div>
+
+                    <button
+                        onclick="selectRoom('Nguyên căn')">
+                        Đặt phòng
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== DỊCH VỤ ==================== -->
+
+    <section id="services" class="services">
+
+        <div class="section-title">
+
+            <p>DỊCH VỤ</p>
+
+            <h2>
+                Dịch vụ tại Happy Home
+            </h2>
+
+        </div>
+
+
+        <div class="service-container">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🍳
+                </div>
+
+                <h3>
+                    Bếp ăn
+                </h3>
+
+                <p>
+                    Bếp ăn rooftop view biển,
+                    sức chứa khoảng 10 - 15 người.
+                </p>
+
+                <strong>
+                    500.000đ/lần
+                </strong>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🧺
+                </div>
+
+                <h3>
+                    Máy giặt / sấy
+                </h3>
+
+                <p>
+                    Hỗ trợ khách hàng sử dụng
+                    máy giặt và máy sấy.
+                </p>
+
+                <strong>
+                    50.000đ/lượt
+                </strong>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Hỗ trợ khách hàng
+                </h3>
+
+                <p>
+                    Hỗ trợ khách hàng trong quá trình
+                    đặt phòng và lưu trú.
+                </p>
+
+                <strong>
+                    Hỗ trợ trực tuyến
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== FORM ĐẶT PHÒNG ==================== -->
+
+    <section id="booking" class="booking">
+
+        <div class="section-title">
+
+            <p>ĐẶT PHÒNG</p>
+
+            <h2>
+                Đặt phòng tại Happy Home
+            </h2>
+
+            <span>
+                Điền thông tin để gửi yêu cầu đặt phòng
+            </span>
+
+        </div>
+
+
+        <div class="booking-box">
+
+            <form id="bookingForm">
+
+
+                <!-- HỌ TÊN -->
+
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Họ và tên
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Nhập họ và tên"
+                        required>
+
+                </div>
+
+
+                <!-- SỐ ĐIỆN THOẠI -->
+
+                <div class="form-group">
+
+                    <label for="customerPhone">
+                        Số điện thoại
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="Nhập số điện thoại"
+                        required>
+
+                </div>
+
+
+                <!-- LOẠI PHÒNG -->
+
+                <div class="form-group">
+
+                    <label for="roomType">
+                        Loại phòng
+                    </label>
+
+                    <select id="roomType" required>
+
+                        <option value="">
+                            -- Chọn loại phòng --
+                        </option>
+
+                        <option value="Phòng nhỏ">
+                            Phòng nhỏ
+                        </option>
+
+                        <option value="Phòng lớn">
+                            Phòng lớn
+                        </option>
+
+                        <option value="Phòng nhóm">
+                            Phòng nhóm
+                        </option>
+
+                        <option value="Nhà 4 phòng ngủ">
+                            Nhà 4 phòng ngủ
+                        </option>
+
+                        <option value="Nguyên căn">
+                            Nguyên căn
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- NGÀY NHẬN -->
+
+                <div class="form-group">
+
+                    <label for="checkin">
+                        Ngày nhận phòng
+                    </label>
+
+                    <input
+                        type="date"
+                        id="checkin"
+                        required>
+
+                </div>
+
+
+                <!-- NGÀY TRẢ -->
+
+                <div class="form-group">
+
+                    <label for="checkout">
+                        Ngày trả phòng
+                    </label>
+
+                    <input
+                        type="date"
+                        id="checkout"
+                        required>
+
+                </div>
+
+
+                <!-- SỐ KHÁCH -->
+
+                <div class="form-group">
+
+                    <label for="guests">
+                        Số lượng khách
+                    </label>
+
+                    <input
+                        type="number"
+                        id="guests"
+                        min="1"
+                        max="20"
+                        value="1"
+                        required>
+
+                </div>
+
+
+                <!-- GHI CHÚ -->
+
+                <div class="form-group full-width">
+
+                    <label for="note">
+                        Ghi chú
+                    </label>
+
+                    <textarea
+                        id="note"
+                        rows="4"
+                        placeholder="Ví dụ: Có trẻ nhỏ, cần nhận phòng sớm...">
+                    </textarea>
+
+                </div>
+
+
+                <!-- NÚT ĐẶT -->
+
+                <div class="booking-submit">
+
+                    <button type="submit">
+                        XÁC NHẬN ĐẶT PHÒNG
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== LIÊN HỆ ==================== -->
+
+    <section id="contact" class="contact">
+
+        <div class="section-title">
+
+            <p>LIÊN HỆ</p>
+
+            <h2>
+                Thông tin Happy Home
+            </h2>
+
+        </div>
+
+
+        <div class="contact-container">
+
+            <div class="contact-item">
+
+                <span>📍</span>
+
+                <div>
+                    <h3>Địa điểm</h3>
+
+                    <p>
+                        Hạ Long, Quảng Ninh
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span>📞</span>
+
+                <div>
+                    <h3>Điện thoại</h3>
+
+                    <p>
+                        09xx xxx xxx
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span>✉️</span>
+
+                <div>
+                    <h3>Email</h3>
+
+                    <p>
+                        happyhome@gmail.com
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                HAPPY HOME
+            </h2>
+
+            <p>
+                Homestay tại Hạ Long - Quảng Ninh
+            </p>
+
+            <p>
+                © 2026 Happy Home. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Kết nối JavaScript -->
+
+   <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>

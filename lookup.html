@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tra cứu đặt phòng - Happy Home</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            Happy Home
+        </div>
+
+        <nav class="navbar">
+
+            <a href="index.html">
+                Trang chủ
+            </a>
+
+            <a href="booking.html">
+                Đặt phòng
+            </a>
+
+            <a href="lookup.html" class="active">
+                Tra cứu đặt phòng
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= TRA CỨU ĐẶT PHÒNG ================= -->
+
+    <main>
+
+        <section class="lookup-section">
+
+            <div class="lookup-box">
+
+                <!-- TIÊU ĐỀ -->
+
+                <div class="lookup-title">
+
+                    <div class="lookup-icon">
+                        🔎
+                    </div>
+
+                    <p class="lookup-subtitle">
+                        HAPPY HOME
+                    </p>
+
+                    <h1>
+                        Tra cứu đặt phòng
+                    </h1>
+
+                    <p class="lookup-description">
+    Kiểm tra nhanh thông tin đặt phòng của bạn
+    bằng mã đặt phòng hoặc số điện thoại đã dùng khi đặt phòng.
+</p>
+
+                </div>
+
+
+                <!-- FORM TRA CỨU -->
+
+                <div class="lookup-form">
+
+                    <label for="bookingCode">
+    Mã đặt phòng hoặc số điện thoại
+</label>
+
+<input
+    type="text"
+    id="bookingCode"
+    placeholder="Ví dụ: HH123456 hoặc 0987654321"
+    autocomplete="off"
+>
+                    
+
+                    <button
+                        type="button"
+                        class="booking-button lookup-button"
+                        onclick="lookupBooking()"
+                    >
+                        🔎 TRA CỨU
+                    </button>
+
+                    <p class="lookup-hint">
+    💡 Bạn có thể tra cứu bằng mã đặt phòng hoặc số điện thoại đã dùng khi đặt phòng.
+</p>
+
+                </div>
+
+
+                <!-- KẾT QUẢ TRA CỨU -->
+
+                <div
+                    id="lookupResult"
+                    class="lookup-result"
+                    style="display: none;"
+                >
+
+                    <div class="result-title">
+
+                        <div>
+                            <span class="result-icon">✓</span>
+
+                            <div>
+                                <p>TRA CỨU THÀNH CÔNG</p>
+
+                                <h2>
+                                    Thông tin đặt phòng
+                                </h2>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="lookup-details">
+
+                        <div class="lookup-detail-item">
+
+                            <span>
+                                Mã đặt phòng
+                            </span>
+
+                            <strong id="lookupBookingCode"></strong>
+
+                        </div>
+
+
+                        <div class="lookup-detail-item">
+
+                            <span>
+                                Khách hàng
+                            </span>
+
+                            <strong id="lookupCustomerName"></strong>
+
+                        </div>
+
+
+                        <div class="lookup-detail-item">
+
+                            <span>
+                                Số điện thoại
+                            </span>
+
+                            <strong id="lookupCustomerPhone"></strong>
+
+                        </div>
+
+
+                        <div class="lookup-detail-item">
+
+                            <span>
+                                Phòng
+                            </span>
+
+                            <strong id="lookupRoom"></strong>
+
+                        </div>
+
+
+                        <div class="lookup-detail-item">
+
+                            <span>
+                                Số khách
+                            </span>
+
+                            <strong id="lookupGuestNumber"></strong>
+
+                        </div>
+
+
+                        <div class="lookup-detail-item">
+
+                            <span>
+                                Nhận phòng
+                            </span>
+
+                            <strong id="lookupCheckIn"></strong>
+
+                        </div>
+
+
+                        <div class="lookup-detail-item">
+
+                            <span>
+                                Trả phòng
+                            </span>
+
+                            <strong id="lookupCheckOut"></strong>
+
+                        </div>
+
+
+                        <div class="lookup-detail-item lookup-price-row">
+
+                            <span>
+                                Tổng tiền dự kiến
+                            </span>
+
+                            <strong id="lookupTotalPrice"></strong>
+
+                        </div>
+
+
+                        <div class="lookup-detail-item lookup-status-row">
+
+                            <span>
+                                Trạng thái
+                            </span>
+
+                            <strong id="lookupStatus"></strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="lookup-result-note">
+
+                        📌 Vui lòng lưu lại <strong>mã đặt phòng</strong>
+                        để thuận tiện tra cứu và liên hệ với Happy Home.
+
+                    </div>
+
+                </div>
+
+<!-- KẾT QUẢ NHIỀU ĐƠN KHI TRA CỨU BẰNG SỐ ĐIỆN THOẠI -->
+
+<div
+    id="lookupMultipleResult"
+    class="lookup-result"
+    style="display: none;"
+>
+
+    <div class="result-title">
+
+        <div>
+            <span class="result-icon">✓</span>
+
+            <div>
+                <p>TRA CỨU THÀNH CÔNG</p>
+
+                <h2>
+                    Các đơn đặt phòng của bạn
+                </h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="lookupBookingList"></div>
+
+    <div class="lookup-result-note">
+
+        📌 Vui lòng lưu lại <strong>mã đặt phòng</strong>
+        để thuận tiện tra cứu và liên hệ với Happy Home.
+
+    </div>
+
+</div>
+
+                <!-- KHÔNG TÌM THẤY -->
+
+                <div
+                    id="lookupError"
+                    class="lookup-error"
+                    style="display: none;"
+                >
+
+                    <div class="error-icon">
+                        ⚠️
+                    </div>
+
+                    <strong>
+                        Không tìm thấy  đặt phòng
+                    </strong>
+
+                    <p>
+                        Vui lòng kiểm tra lại mã đặt phòng hoặc số điện thoại
+    bạn đã nhập và thử lại.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/lookup.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Quản lý đặt phòng - Happy Home</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        <span>HAPPY</span> HOME
+    </div>
+
+   <nav>
+    <a href="../index.html">Trang chủ</a>
+    <a href="../booking.html">Đặt phòng</a>
+    <button type="button" onclick="logoutAdmin()" class="admin-logout-button">
+        ĐĂNG XUẤT
+    </button>
+</nav>
+
+</header>
+
+
+
+<!-- ================= TIÊU ĐỀ ================= -->
+
+<section class="admin-header">
+
+    <h1>
+        QUẢN LÝ ĐẶT PHÒNG
+    </h1>
+
+    <p>
+        Hệ thống quản lý đơn đặt phòng Happy Home
+    </p>
+
+</section>
+
+
+
+<!-- ================= THỐNG KÊ ================= -->
+
+<section class="admin-container">
+
+
+    <div class="dashboard-cards">
+
+
+        <!-- TỔNG ĐƠN -->
+
+        <div class="dashboard-card">
+
+            <h3>
+                Tổng đơn
+            </h3>
+
+            <strong id="totalBookings">
+                0
+            </strong>
+
+        </div>
+
+
+
+        <!-- CHỜ XÁC NHẬN -->
+
+        <div class="dashboard-card">
+
+            <h3>
+                Chờ xác nhận
+            </h3>
+
+            <strong id="pendingBookings">
+                0
+            </strong>
+
+        </div>
+
+
+
+        <!-- ĐÃ XÁC NHẬN -->
+
+        <div class="dashboard-card">
+
+            <h3>
+                Đã xác nhận
+            </h3>
+
+            <strong id="confirmedBookings">
+                0
+            </strong>
+
+        </div>
+
+
+
+        <!-- ĐÃ HỦY -->
+
+        <div class="dashboard-card">
+
+            <h3>
+                Đã hủy
+            </h3>
+
+            <strong id="cancelledBookings">
+                0
+            </strong>
+
+        </div>
+
+
+    </div>
+
+<!-- ================= TÌNH TRẠNG PHÒNG HÔM NAY ================= -->
+
+<section class="room-status-section">
+
+    <div class="room-status-header">
+
+        <h2>🏠 Tình trạng phòng hôm nay</h2>
+
+        <p id="roomStatusDate">
+            Hôm nay
+        </p>
+
+    </div>
+
+
+    <!-- THỐNG KÊ NHANH -->
+
+    <div class="room-summary">
+
+        <div class="room-summary-card">
+            <span>🟢</span>
+            <div>
+                <strong id="todayCheckInCount">0</strong>
+                <p>Nhận hôm nay</p>
+            </div>
+        </div>
+
+
+        <div class="room-summary-card">
+            <span>🟠</span>
+            <div>
+                <strong id="todayCheckOutCount">0</strong>
+                <p>Trả hôm nay</p>
+            </div>
+        </div>
+
+
+        <div class="room-summary-card">
+            <span>🔵</span>
+            <div>
+                <strong id="todayOccupiedCount">0</strong>
+                <p>Đang có khách</p>
+            </div>
+        </div>
+
+
+        <div class="room-summary-card">
+            <span>⚪</span>
+            <div>
+                <strong id="todayEmptyCount">0</strong>
+                <p>Phòng trống</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- DANH SÁCH 5 PHÒNG -->
+
+    <div
+        class="room-status-grid"
+        id="roomStatusGrid"
+    >
+
+    </div>
+
+</section>
+
+<!-- ================= BẢNG ĐƠN ================= -->
+
+<div class="booking-table-box">
+
+
+    <div class="table-header">
+
+        <h2>
+            Danh sách đặt phòng
+        </h2>
+
+
+        <button
+            onclick="clearAllBookings()"
+            class="delete-all-button">
+
+            Xóa tất cả
+
+        </button>
+
+    </div>
+
+<!-- Ô TRA CỨU ĐẶT PHÒNG -->
+<div class="admin-search-box">
+
+    <div class="admin-search-input-wrap">
+        <span>🔎</span>
+
+        <input
+            type="text"
+            id="adminSearchInput"
+            placeholder="Nhập mã đơn, tên khách hoặc số điện thoại..."
+            autocomplete="off"
+        >
+    </div>
+
+    <button
+        type="button"
+        class="admin-search-button"
+        onclick="searchAdminBookings()"
+    >
+        TRA CỨU
+    </button>
+
+    <button
+        type="button"
+        class="admin-search-clear"
+        onclick="clearAdminSearch()"
+    >
+        XÓA
+    </button>
+
+</div>
+
+<p id="adminSearchResult" class="admin-search-result"></p>
+
+<!-- ========================================
+     LỌC TRẠNG THÁI ĐƠN
+======================================== -->
+
+<div class="admin-filter-box">
+
+    <label for="adminStatusFilter">
+        Lọc theo trạng thái:
+    </label>
+
+    <select
+        id="adminStatusFilter"
+        onchange="filterAdminBookings()"
+    >
+        <option value="">Tất cả đơn</option>
+        <option value="Chờ xác nhận">🟡 Chờ xác nhận</option>
+        <option value="Đã xác nhận">🟢 Đã xác nhận</option>
+        <option value="Đã hủy">🔴 Đã hủy</option>
+        <option value="Đã kết thúc">⚫ Đã kết thúc</option>
+    </select>
+
+</div>
+
+    <div class="table-responsive">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Mã đơn
+                    </th>
+
+                    <th>
+                        Khách hàng
+                    </th>
+
+                    <th>
+                        Số điện thoại
+                    </th>
+
+                    <th>
+                        Loại phòng
+                    </th>
+
+<th>
+    Phòng
+</th>
+
+                    <th>
+                        Số khách
+                    </th>
+
+                    <th>
+                        Nhận phòng
+                    </th>
+
+                    <th>
+                        Trả phòng
+                    </th>
+
+<th>
+    Tổng tiền
+</th>
+
+                    <th>
+                        Trạng thái
+                    </th>
+
+                    <th>
+                        Thao tác
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="bookingTableBody">
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Happy Home - Homestay Hạ Long, Quảng Ninh
+    </p>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/admin.js"></script>
+
+
+</body>
+
+</html>
