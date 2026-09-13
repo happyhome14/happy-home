@@ -52,7 +52,7 @@ function formatDateTime(dateString) {
 function normalizePhone(phone) {
     return String(phone || "")
         .trim()
-        .replace(/[\s().-]/g, "");
+        .replace(/\D/g, "");
 }
 
 
@@ -276,45 +276,58 @@ async function lookupBooking() {
         // TRA CỨU BẰNG SỐ ĐIỆN THOẠI
         // ======================================
 
-        if (/^(0\d{9}|84\d{9}|\+84\d{9})$/.test(normalizedValue)) {
-            const phoneVariants =
-                getPhoneVariants(normalizedValue);
+        // ======================================
+// TRA CỨU BẰNG SỐ ĐIỆN THOẠI
+// ======================================
 
-            const results = [];
+if (/^(0\d{9}|84\d{9}|\+84\d{9})$/.test(normalizedValue)) {
+    const phoneVariants = getPhoneVariants(normalizedValue);
 
-            for (const phone of phoneVariants) {
-                const result = await supabaseClient
-                    .from("bookings")
-                    .select("*")
-                    .eq("customer_phone", phone)
-                    .order("created_at", {
-                        ascending: false
-                    });
+    let results = [];
 
-                if (result.error) {
-                    error = result.error;
-                    break;
-                }
-
-                if (result.data && result.data.length > 0) {
-                    results.push(...result.data);
-                }
-            }
-
-            // Loại bỏ đơn bị trùng
-            const uniqueBookings = [];
-
-            results.forEach(function (booking) {
-                const exists = uniqueBookings.some(function (item) {
-                    return item.booking_code === booking.booking_code;
-                });
-
-                if (!exists) {
-                    uniqueBookings.push(booking);
-                }
+    for (const phone of phoneVariants) {
+        const result = await supabaseClient
+            .from("bookings")
+            .select("*")
+            .order("created_at", {
+                ascending: false
             });
 
-            data = uniqueBookings;
+        if (result.error) {
+            error = result.error;
+            break;
+        }
+
+        if (result.data && result.data.length > 0) {
+            const matchedBookings = result.data.filter(function (booking) {
+                const savedPhone = normalizePhone(
+                    booking.customer_phone
+                );
+
+                return getPhoneVariants(savedPhone).some(function (variant) {
+                    return phoneVariants.includes(variant);
+                });
+            });
+
+            results.push(...matchedBookings);
+        }
+    }
+
+    // Loại bỏ đơn bị trùng
+    const uniqueBookings = [];
+
+    results.forEach(function (booking) {
+        const exists = uniqueBookings.some(function (item) {
+            return item.booking_code === booking.booking_code;
+        });
+
+        if (!exists) {
+            uniqueBookings.push(booking);
+        }
+    });
+
+    data = uniqueBookings;
+
 
         } else {
             // ======================================
